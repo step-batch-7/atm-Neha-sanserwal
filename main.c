@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include "atm.h"
 
-int display_notes(count){
+int display_notes(unsigned int notes){
   unsigned int dominations[8] = {1,5,10,20,50,100,500,2000},position = 0xf;
-  int num;
+  int num_of_notes;
   for(int i = 0; i < 8; i++){
-    num=count & position;
-    if(num){
-    printf("\n%u notes of %u",num,dominations[i]);
+    num_of_notes=notes & position;
+    if(num_of_notes){
+    printf("%u notes of %u\n",num_of_notes,dominations[i]);
     }
-    count = count >> 4;
+    notes = notes >> 4;
   }
   return 0;
 }
